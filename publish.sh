@@ -11,5 +11,4 @@ echo "Updating master branch"
 cd public && git add --all
 cd ../
 git mv public/* .
-git rm public
 git commit -m "Publishing to master(publish.sh)"
