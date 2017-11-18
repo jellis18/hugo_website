@@ -7,9 +7,6 @@ footnotereturnlinkcontents = "<sup>^</sup>"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 paginate = 10
 
-# work with github /docs folder
-publishDir = "docs"
-
 # Enable comments by entering your Disqus shortname
 disqusShortname = ""
 
