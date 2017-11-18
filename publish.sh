@@ -8,7 +8,8 @@ echo "Generating site"
 hugo
 
 echo "Updating master branch"
-cd public && git add --all
+cd public
+git add --all
 cd ../
 git mv public/* .
 git commit -m "Publishing to master(publish.sh)"
