@@ -11,5 +11,5 @@ echo "Updating master branch"
 cd public
 git add --all
 cd ../
-for file in public/*; do echoo $file; done
+for file in public/*; do echo $file; done
 git commit -m "Publishing to master(publish.sh)"
