@@ -12,4 +12,5 @@ cd public
 git add --all
 for file in *; do git rm -r ../$file; done
 cd ../
+git mv public/* .
 git commit -m "Publishing to master(publish.sh)"
