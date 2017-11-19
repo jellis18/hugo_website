@@ -10,6 +10,6 @@ hugo
 echo "Updating master branch"
 cd public
 git add --all
-for file in *; do git rm ../$file; done
+for file in *; do git rm -r ../$file; done
 cd ../
 git commit -m "Publishing to master(publish.sh)"
