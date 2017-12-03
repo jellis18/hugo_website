@@ -1,6 +1,6 @@
 +++
 date = 2017-11-20
-lastmod = 2017-10-20
+lastmod = 2017-11-20
 draft = false
 tags = []
 title = "Automating Jupyter Slides with Travis CI and gh-pages."
