@@ -1,7 +1,8 @@
 language: python
 
 install:
-    - sudo snap hugo
+    - sudo apt-get update
+    - sudo apt-get install hugo
     - pip install Pygments
 
 script:
