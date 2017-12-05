@@ -33,7 +33,8 @@ weight = 1
 
 +++
 
-# Biography
+# About Me
+
 I'm currently a [NANOGrav](http://nanograv.org) Physics Frontier Center (PFC)
 postdoctoral fellow employed by WVU but working and living in the Research
 Triangle area of NC. I am also a visiting postdoctoral scholar at NC State in
@@ -46,3 +47,5 @@ medium characterization.
 
 I'm also very interested in machine learning and data science and strive to
 pursue projects and learn more in those areas.
+
+My full resume is available {{% staticref "files/JAE-resume.pdf" %}}here{{% /staticref %}}.
