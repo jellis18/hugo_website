@@ -93,7 +93,7 @@ defaultContentLanguageInSubdir = false
   #   https://sourcethemes.com/academic/post/writing-markdown-latex/#highlighting-options
   highlight = true
   highlight_languages = ['yaml', 'python', 'bash']
-  highlight_style = "github"
+  highlight_style = "xcode"
 
   # Enable native social sharing buttons?
   sharing = true
