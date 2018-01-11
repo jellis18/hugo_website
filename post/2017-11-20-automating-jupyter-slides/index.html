@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="author" content="Justin A. Ellis">
+  <meta name="description" content="Astrophysicist and  Data Scientist">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://jellis18.github.io/post/2017-11-20-automating-jupyter-slides/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/xcode.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-109904120-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://jellis18.github.io/post/2017-11-20-automating-jupyter-slides/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@justinellis18">
+  <meta property="twitter:creator" content="@justinellis18">
+  
+  <meta property="og:site_name" content="Justin A. Ellis">
+  <meta property="og:url" content="https://jellis18.github.io/post/2017-11-20-automating-jupyter-slides/">
+  <meta property="og:title" content="Automating Jupyter Slides with Travis CI and gh-pages. | Justin A. Ellis">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2017-11-20T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2017-11-20T00:00:00&#43;00:00">
+  
+
+  
+
+  <title>Automating Jupyter Slides with Travis CI and gh-pages. | Justin A. Ellis</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Justin A. Ellis</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Portfolio</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Automating Jupyter Slides with Travis CI and gh-pages.</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-11-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Nov 20, 2017
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="https://jellis18.github.io/post/2017-11-20-automating-jupyter-slides/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Automating%20Jupyter%20Slides%20with%20Travis%20CI%20and%20gh-pages.&amp;url=https%3a%2f%2fjellis18.github.io%2fpost%2f2017-11-20-automating-jupyter-slides%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fjellis18.github.io%2fpost%2f2017-11-20-automating-jupyter-slides%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fjellis18.github.io%2fpost%2f2017-11-20-automating-jupyter-slides%2f&amp;title=Automating%20Jupyter%20Slides%20with%20Travis%20CI%20and%20gh-pages."
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fjellis18.github.io%2fpost%2f2017-11-20-automating-jupyter-slides%2f&amp;title=Automating%20Jupyter%20Slides%20with%20Travis%20CI%20and%20gh-pages."
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Automating%20Jupyter%20Slides%20with%20Travis%20CI%20and%20gh-pages.&amp;body=https%3a%2f%2fjellis18.github.io%2fpost%2f2017-11-20-automating-jupyter-slides%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        
+
+<p>First off, if you use Python and you don&rsquo;t use <a href="http://jupyter.org" target="_blank">Jupyter Notebooks</a>
+then you need to start right now. For that matter I would say the same thing about
+R users (although I&rsquo;m not that familiar with R-markdown so maybe that&rsquo;s ok). Jupyter
+notebooks are changing the way we work with code, instead of writing obscure &ldquo;scripts&rdquo;
+or re-writing the same code blocks over and over in Ipython or Rstudio, we now
+are writing <a href="http://blog.stephenwolfram.com/2017/11/what-is-a-computational-essay/" target="_blank">computational essays</a>
+in which the code, comments, notes, and figures all live in the same place ensuring
+more robust and reproducible research.</p>
+
+<p>Ok, now that my evangelizing is done, lets get down to business. Lets say you
+have been working on a beautiful Jupyter notebook and now you have to present
+your results at a conference or business meeting. The standard way of doing this
+would be to gather up all of the figures, some text, and maybe some code from
+the notebook and put it into a PowerPoint/Keynote/Beamer presentation. If you then
+want to share this presentation more widely you may host them on <a href="https://speakerdeck.com" target="_blank">Speaker Deck</a> or
+just throw them on a Github repository somewhere. Actually, if you have already
+done this, then you are ahead of the game in terms of open-source science. But
+you did so much work on that notebook, wouldn&rsquo;t it be better if you didn&rsquo;t then
+have to spend all that extra valuable time making slides too? Well, we can do that
+with Jupyter notebooks and with a few quick hacks you can go from notebook to
+web-published slides.</p>
+
+<h2 id="the-notebook">The Notebook</h2>
+
+<p>I will assume a familiarity with Jupyter notebooks in general but not with the
+slideshow features. Lets say you have a notebook called <code>nb.ipynb</code> with some
+content. To go into slideshow mode click <code>View -&gt; Cell Toolbar -&gt; Slideshow</code>,
+this will now add a toolbar to each cell in the notebook from which you can choose
+what kind of slide you want each cell to be. You can choose <code>Slide</code> for a standard
+slide, <code>Sub-Slide</code> for a continuation slide, <code>Fragment</code> for revealing bullet points
+or other elements within a single slide, <code>Notes</code> to add slide notes, <code>Skip</code> to
+not include that cell in the slideshow. <a href="https://github.com/jellis18/jupyter_notebook_slide_tutorial/blob/master/nb.ipynb" target="_blank">Here</a> is an example notebook in case
+you don&rsquo;t already have one ready. Lastly, if you include any extra images, place them
+in an <code>img/</code> folder and commit that to your Github repo. You can view your notebook
+in the web browser with <code>jupyter nbconvert nb.ipynb --to slides --post serve</code>.
+Now that we have the notebook, lets do this!</p>
+
+<h2 id="setup">Setup</h2>
+
+<p>Much of this setup is inspired by Dan Foreman-Mackey&rsquo;s awesome article on
+<a href="http://dfm.io/posts/travis-latex/" target="_blank">continuous integration of academic papers</a>
+and the first few steps are nearly identical to what is done there.</p>
+
+<p>First, <a href="https://help.github.com/articles/create-a-repo/" target="_blank">create a Github repo</a>
+and commit your notebook. To get started with Travis, create a <code>.travis.yml</code>
+file and <a href="https://docs.travis-ci.com/user/getting-started/" target="_blank">log in to Travis with your Github account</a>
+and enable builds for your repository. You will also need to
+<a href="https://github.com/settings/tokens" target="_blank">create a personal access token</a>.
+Copy this token and go to the settings page of your repo on travis and add set</p>
+
+<ol>
+<li><code>GITHUB_API_KEY</code>: set to the personal access token you just created.</li>
+<li><code>GITHUB_USER</code>: set to your Github username.</li>
+</ol>
+
+<p>OK, now that we have Travis set up lets edit the <code>.travis.yml</code> file:</p>
+
+<pre><code class="language-yaml">language: python
+cache: pip
+
+python:
+    - &quot;2.7&quot;
+
+# install jupyter and get reveal.js as we will need it to build the website
+# from Travis
+install:
+    - pip install jupyter
+    - wget https://github.com/hakimel/reveal.js/archive/master.zip
+    - unzip master.zip
+    - mv reveal.js-master reveal.js
+
+script:
+    - jupyter nbconvert nb.ipynb --to slides --reveal-prefix=reveal.js
+
+after_success: |
+    if [ -n &quot;$GITHUB_API_KEY&quot; ]; then
+    git checkout --orphan gh-pages
+    git rm -rf --cached .
+    mv nb.slides.html index.html
+    git add -f --ignore-errors index.html img reveal.js
+    git -c user.name='travis' -c user.email='travis' commit -m init
+    git push -f -q https://$GITHUB_USER:$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG gh-pages
+    fi
+</code></pre>
+
+<p>Push this to your Github repository and if all goes well then your web-presentation
+should be available at <code>https://USERNAME.github.io/REPONAME</code>. If this worked, any
+further changes that you make to your Jupyter notebook will then be automatically
+built and displayed in the web-presentation. Here is my example <a href="https://github.com/jellis18/jupyter_notebook_slide_tutorial" target="_blank">Github repo</a> and
+<a href="https://jellis18.github.io/jupyter_notebook_slide_tutorial/" target="_blank">presentation</a>.</p>
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+<p>Now you can make nice automated Jupyter notebook slides; however, I only showed
+the very basics of Jupyter Notebook slideshow options and themes. Things are
+pretty customizable if you aren&rsquo;t opposed to some hacking. Lastly, I don&rsquo;t think
+Jupyter notebooks are good for all presentations but it is great for code demos
+and talks that have code attached to them.</p>
+
+      </div>
+
+      
+
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+
+
+
+<div class="article-container">
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jellis18-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Justin A. Ellis &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//jellis18-github-io.disqus.com/count.js" async></script>
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+
